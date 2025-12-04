@@ -1,6 +1,6 @@
 [package]
 name = "niriscript"
-version = "0.1.0"
+version = "0.1.01"
 edition = "2024"
 repository = "https://github.com/actuday6418/niriscript.git"
 description = "Hacky niri scripting"
