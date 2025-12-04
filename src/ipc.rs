@@ -1,9 +1,11 @@
+use niri_ipc::{
+    ColumnDisplay, LayoutSwitchTarget, PositionChange, SizeChange, WorkspaceReferenceArg,
+};
 use serde_json::json;
 use std::collections::HashSet;
 use std::io::{BufRead, BufReader, Write};
 use std::os::unix::net::UnixStream;
 use std::time::Duration;
-use niri_ipc::{LayoutSwitchTarget, WorkspaceReferenceArg, ColumnDisplay, SizeChange, PositionChange};
 
 pub struct Niri {
     socket_path: String,
@@ -64,7 +66,7 @@ impl Niri {
         let _ = std::io::Read::read(&mut stream, &mut [0; 1024]);
     }
 
-    pub fn spawn(mut self, app: App) -> Self {
+    pub fn spawn(mut self, app: &App) -> Self {
         let cmd_vec: Vec<&str> = app.cmd.split_whitespace().collect();
         self.send_action(json!({ "Spawn": { "command": cmd_vec } }));
 
