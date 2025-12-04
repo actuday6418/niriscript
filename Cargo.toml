@@ -2,6 +2,9 @@
 name = "niriscript"
 version = "0.1.0"
 edition = "2024"
+repository = "https://github.com/actuday6418/niriscript.git"
+description = "Hacky niri scripting"
+license = "GPLv2"
 
 [dependencies]
 serde = { version = "1.0.228", features = ["derive"] }
